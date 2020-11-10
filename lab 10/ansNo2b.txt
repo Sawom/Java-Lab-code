@@ -1,0 +1,38 @@
+package finalLab;
+import java.util.Random;
+public class MultiThreadedAPP {
+    public static void main(String[] args) {
+        MultiThread1 a=new MultiThread1();
+        MultiThread1 b=new MultiThread1();
+        MultiThread1 c=new MultiThread1();
+        a.start();
+        b.start();
+        c.start();
+        try{
+            a.join();
+            b.join();
+            c.join();
+        }catch(Exception e){
+            e.getMessage();
+        }
+        int sum=0;
+        for(int i=0;i<10;i++){
+            sum=sum+a.num[i]+b.num[i]+c.num[i];
+        }
+        System.out.println("sum : "+sum);
+    }
+}
+
+class MultiThread1 extends Thread{
+    int num[]=new int[10];
+    public void run(){
+        Random random = new Random();
+        for(int i=0;i<num.length;i++){
+            int temp= random.nextInt(100);
+            num[i]=temp;
+        }
+        for(int i:num){
+            System.out.println(i);
+        }
+    }
+}

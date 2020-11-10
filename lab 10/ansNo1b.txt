@@ -1,0 +1,19 @@
+package finalLab;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class CreateFile {
+    public static void main(String[] args)throws FileNotFoundException {
+        Scanner input=new Scanner(System.in);
+        PrintStream p= new PrintStream(new File("olympic.txt"));
+        System.out.println("Enter your data......  ");
+        String data=input.nextLine();
+        while(!data.equals("Exit")){
+            p.println(data);
+            data=input.nextLine();
+        }
+        p.close();
+    }
+}

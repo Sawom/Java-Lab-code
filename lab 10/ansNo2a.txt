@@ -1,0 +1,30 @@
+package finalLab;
+
+public class MultiThreadedApp {
+    public static void main(String[] args) {
+        Thread even=new Thread(new Even(),"Even Numbers");
+        Thread odd=new Thread(new Odd(),"Odd Numbers");
+        even.start();
+        odd.start();
+    }
+}
+class Even extends Thread{
+    public void run(){
+        for(int i=0;i<=100;i++){
+            if(i%2==0){
+                System.out.println(Thread.currentThread().getName()+":"+i);
+            }
+        }
+    }
+}
+
+class Odd extends Thread {
+    public void run() {
+        for (int i = 0; i <= 100; i++) {
+            if (i % 2 != 0) {
+                System.out.println(Thread.currentThread().getName() + ":" + i);
+            }
+        }
+    }
+}
+

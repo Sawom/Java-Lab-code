@@ -1,0 +1,18 @@
+package finalLab;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class CopyFileToAnotherFile {
+    public static void main(String[] args)throws FileNotFoundException {
+        Scanner input=new Scanner(new File("olympic.txt"));
+        PrintWriter p= new PrintWriter(new File("processed.txt"));
+        while(input.hasNextLine()){
+            String s=input.nextLine();
+            p.println(s);
+        }
+        input.close();
+        p.close();
+    }
+}

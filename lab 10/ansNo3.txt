@@ -1,0 +1,21 @@
+package finalLab;
+import java.io.*;
+import java.util.Scanner;
+
+public class SumOfMedals {
+    public static void main(String[] args)throws FileNotFoundException {
+        Scanner input =new Scanner(new File("olympic.txt"));
+        PrintStream p=new PrintStream(new File("processed.txt"));
+        while (input.hasNextLine()){
+            String s=input.nextLine();
+            String data[]=s.split(" ");
+            int sum=0;
+            for(int i=1;i<data.length;i++){
+                sum=sum+(Integer.parseInt(data[i]));
+            }
+            p.println(s+" "+sum);
+        }
+        input.close();
+        p.close();
+    }
+}
